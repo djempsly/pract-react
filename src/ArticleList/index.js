@@ -14,7 +14,7 @@ function ArticleList(props){
             {/* {props.searchArt.map((todo)=>props.render(todo))} */}
             {props.searchArt.map(propsRenderFunction)}
              <ul>
-                {propsRenderFunction}
+                {props.children}
             </ul>
         </section>
        

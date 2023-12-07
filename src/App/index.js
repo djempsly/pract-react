@@ -33,8 +33,8 @@ function App() {
  } = useArticle()
 
   return (
-    <React.Fragment>
-      <ArticleHeader>
+    <div className='App'>
+      <ArticleHeader loading = {loading}>
         <Tittle 
         complet = {complet}
           total = {total}
@@ -94,7 +94,7 @@ function App() {
          />
         </Modal>)}
 
-    </React.Fragment>
+    </div>
   );
 }
 

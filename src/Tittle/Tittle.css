@@ -1,0 +1,13 @@
+.titulo{
+    font-weight: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.titulo span{
+    font-weight: bold;
+}
+
+.titulo-loading{
+    opacity: 2%;
+}

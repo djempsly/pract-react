@@ -1,4 +1,5 @@
 import React from "react";
+import './Article.css'
 import { GrCheckmark } from "react-icons/gr";
 import { GrClose } from "react-icons/gr";
 

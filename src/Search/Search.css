@@ -1,0 +1,17 @@
+.input-search{
+    width: 250px;
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(195, 205, 182);
+}
+.input-search::placeholder{
+    color: white;
+}
+.input-search:focus{
+    outline-color: rgb(133, 157, 34);
+}
+.input-search:disabled{
+    opacity: 15%;
+}
