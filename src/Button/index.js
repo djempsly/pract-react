@@ -1,8 +1,11 @@
 import React from "react";
 
-function Button(){
+function Button({setOpenModal}){
+   
     return(
-        <button className="boton"> 
+        <button className="boton"
+        onClick={()=>setOpenModal(state=>!state)}
+        > 
             + 
         </button>
     );

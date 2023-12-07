@@ -7,6 +7,11 @@ import { Button } from '../Button'
 import { Tittle } from '../Tittle';
 import { ArticleHeader } from '../ArticleHeader';
 import { useArticle } from './useArticle';
+import { Modal } from '../Modal';
+import { NewArticle } from '../NewArticle';
+import { Loading } from '../Loading';
+import { Error } from '../Error';
+import { CreateArticle } from '../CreateArticle';
 
 
 function App() {
@@ -18,11 +23,15 @@ function App() {
     value, 
     setValue,
     total,
-    complet
+    complet,
+    openModal, 
+    setOpenModal,
+    addArticle,
+    error,
+    loading
 
  } = useArticle()
 
-  
   return (
     <React.Fragment>
       <ArticleHeader>
@@ -39,20 +48,52 @@ function App() {
       </ArticleHeader>
 
       
-      <ArticleList>
-        {searchArt.map((art)=>
-        <Article 
-        key={art.nombre}
-        nombre = {art.nombre}
-        disponible = { art.disponible}
-        onCompleted = {()=>completed(art.nombre)}
-        onDeleted = {() => deleted(art.nombre)}
-        />
-        )}
+      <ArticleList
+
+      error = {error}
+      loading = {loading}
+      searchArt = {searchArt}
+      total = {total}
+      searchtext = {value}
+
+      onError = {()=><Error />}
+      onLoading = {()=><Loading />}
+      onCreateArticle = {()=><CreateArticle />}
+      onCreateArticleSearchResult = {(search) =>
+      <p>Lo siento, no hay coincidencia con <strong>{search}</strong> </p>}
+
+      // render={(art)=>
+      // <Article 
+      // key={art.nombre}
+      // nombre = {art.nombre}
+      // disponible = { art.disponible}
+      // onCompleted = {()=>completed(art.nombre)}
+      // onDeleted = {() => deleted(art.nombre)}
+      // />
+      // }
+      
+      >
+        {(art)=>
+      <Article 
+      key={art.nombre}
+      nombre = {art.nombre}
+      disponible = { art.disponible}
+      onCompleted = {()=>completed(art.nombre)}
+      onDeleted = {() => deleted(art.nombre)}
+      />
+      }
           
       </ArticleList>
       
-      <Button />
+      <Button setOpenModal = {setOpenModal} />
+
+      {openModal && (<Modal>
+        <NewArticle 
+        setOpenModal = {setOpenModal}
+        addArticle={addArticle}
+         />
+        </Modal>)}
+
     </React.Fragment>
   );
 }
